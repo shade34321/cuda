@@ -37,12 +37,14 @@ __global__ void add(float *a, float *b, float *c) {
 
 void printArray(float *c) {
     for (int i = 0; i < N; i++) {
-        printf("%d ", c[i]);
+        printf("%f ", c[i]);
 
-        if (i % 80 == 0) {
+        if (i % 10 == 0) {
             printf("\n");
         }
     }
+
+    printf("\n");
 }
 
 int main(void) {
@@ -76,7 +78,7 @@ int main(void) {
     bool success = true;
     for (int i = 0; i < N; i++) {
         if (a[i] + b[i] != c[i]) {
-            printf( "Error %d + %d != %d\n", a[i], b[i], c[i]);
+            printf( "Error %f + %f != %f\n", a[i], b[i], c[i]);
             success = false;
         }
     }
