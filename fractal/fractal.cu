@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include "cpu_bitmap.h"
 
-#define DIM 1000
+#define DIM 1920
 
 struct cuComplex {
     float r;
@@ -18,6 +18,10 @@ struct cuComplex {
 
     __device__ float magnitude2(void) {
         return r * r + i * i;
+    }
+
+    __device__ cuComplex operator*(const cuComplex& a) {
+        return cuComplex(r*a.r - i*a.i, i*a.r + r*a.i);
     }
 
     __device__ cuComplex operator+(const cuComplex& a) {
@@ -39,7 +43,7 @@ static void HandleError( cudaError_t err, const char *file, int line) {
 #define HANDLE_ERROR(err) (HandleError(err, __FILE__, __LINE__))
 
 __device__ int julia(int x, int y) {
-    const float scale = 1.65;
+    const float scale = .05;
     float jx = scale * (float)(DIM/2 - x)/(DIM/2);
     float jy = scale * (float)(DIM/2 -y)/(DIM/2);
 
@@ -49,7 +53,7 @@ __device__ int julia(int x, int y) {
     int i = 0;
 
     for (i = 0; i<200;i++) {
-        a = a*a+c;
+        a = a * a + c;
         if (a.magnitude2() > 1000)
             return 0;
     }
@@ -63,9 +67,9 @@ __global__ void kernel(unsigned char *ptr) {
     int offset = x + y * gridDim.x;
 
     int juliaValue = julia(x, y);
-    ptr[offset*4 + 0] = 255 * juliaValue;
-    ptr[offset*4 + 1] = 0;
-    ptr[offset*4 + 2] =  0;
+    ptr[offset*4 + 0] = 25 * juliaValue;
+    ptr[offset*4 + 1] = 255 * juliaValue;
+    ptr[offset*4 + 2] =  65 * juliaValue / 4;
     ptr[offset*4 + 3] = 255;
 }
 
