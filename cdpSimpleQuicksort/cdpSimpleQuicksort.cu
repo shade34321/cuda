@@ -148,7 +148,7 @@ void initialize_data(unsigned int *dst, unsigned int nitems)
 ////////////////////////////////////////////////////////////////////////////////
 // Verify the results.
 ////////////////////////////////////////////////////////////////////////////////
-int check_results(int n, unsigned int *results_d)
+void check_results(int n, unsigned int *results_d)
 {
     unsigned int *results_h = new unsigned[n];
     checkCudaErrors(cudaMemcpy(results_h, results_d, n*sizeof(unsigned), cudaMemcpyDeviceToHost));
@@ -162,6 +162,21 @@ int check_results(int n, unsigned int *results_d)
 
     std::cout << "OK" << std::endl;
     delete[] results_h;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Opens the log file so we can store the results for analysis later.
+// Takes in the number of items being sorted and how long it took to sort it.
+////////////////////////////////////////////////////////////////////////////////
+void log_results(int num, int time) {
+    char filename[31];
+    snprintf(filename, 30, "sorting_time_results.csv");
+    
+    std::ofstream data_log; 
+    //Should allow us to open and append to the end only
+    data_log.open(filename, std::ios::out | std::ios::app);
+    data_log << num << "," << time << std::endl;
+    data_log.close();
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -243,56 +258,49 @@ int main(int argc, char **argv)
         exit(EXIT_WAIVED);
     }
 
-    const char *output_file = 
-    
-    //Run three times
-    for(int i = 0;i < 3; i++) {
-		cudaSetDevice(device);
-	
-		// Create input data
-		unsigned int *h_data = 0;
-		unsigned int *d_data = 0;
-	
-		// Allocate CPU memory and initialize data.
-		std::cout << "Initializing data:" << std::endl;
-		h_data =(unsigned int *)malloc(num_items*sizeof(unsigned int));
-		initialize_data(h_data, num_items);
-	
-		if (verbose)
-		{
-			for (int i=0 ; i<num_items ; i++)
-				std::cout << "Data [" << i << "]: " << h_data[i] << std::endl;
-		}
-	
-		// Allocate GPU memory.
-		checkCudaErrors(cudaMalloc((void **)&d_data, num_items * sizeof(unsigned int)));
-		checkCudaErrors(cudaMemcpy(d_data, h_data, num_items * sizeof(unsigned int), cudaMemcpyHostToDevice));
-	
-		// Execute
-		std::cout << "Running quicksort on " << num_items << " elements" << std::endl;
-		
-		//Add timing code
-		run_qsort(d_data, num_items);
-		//End timing code
-		
-		// Check result
-		std::cout << "Validating results: ";
-		
-		if(check_results(num_items, d_data)){
-			//Store data
-		}
-		
-		free(h_data);
-		checkCudaErrors(cudaFree(d_data));
-	
-		// cudaDeviceReset causes the driver to clean up all state. While
-		// not mandatory in normal operation, it is good practice.  It is also
-		// needed to ensure correct operation when the application is being
-		// profiled. Calling cudaDeviceReset causes all profile data to be
-		// flushed before the application exits
-		cudaDeviceReset();
+    cudaSetDevice(device);
+
+    for (int i = 0; i < 3; i++) {
+
+        // Create input data
+        unsigned int *h_data = 0;
+        unsigned int *d_data = 0;
+
+        // Allocate CPU memory and initialize data.
+        std::cout << "Initializing data:" << std::endl;
+        h_data =(unsigned int *)malloc(num_items*sizeof(unsigned int));
+        initialize_data(h_data, num_items);
+
+        if (verbose)
+        {
+            for (int i=0 ; i<num_items ; i++)
+                std::cout << "Data [" << i << "]: " << h_data[i] << std::endl;
+        }
+
+        // Allocate GPU memory.
+        checkCudaErrors(cudaMalloc((void **)&d_data, num_items * sizeof(unsigned int)));
+        checkCudaErrors(cudaMemcpy(d_data, h_data, num_items * sizeof(unsigned int), cudaMemcpyHostToDevice));
+
+        // Execute
+        std::cout << "Running quicksort on " << num_items << " elements" << std::endl;
+        run_qsort(d_data, num_items);
+
+        // Check result
+        std::cout << "Validating results: ";
+        check_results(num_items, d_data);
+
+        free(h_data);
+        checkCudaErrors(cudaFree(d_data));
+
+        // cudaDeviceReset causes the driver to clean up all state. While
+        // not mandatory in normal operation, it is good practice.  It is also
+        // needed to ensure correct operation when the application is being
+        // profiled. Calling cudaDeviceReset causes all profile data to be
+        // flushed before the application exits
+        cudaDeviceReset();
+        log_results(num_items, 0);
     }
-    
-	exit(EXIT_SUCCESS);
+
+    exit(EXIT_SUCCESS);
 }
 
