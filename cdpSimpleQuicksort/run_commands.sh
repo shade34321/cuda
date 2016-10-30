@@ -12,6 +12,6 @@ do
     let "i=2**j"
     #sleep 15
     printf "Running simulation using 2**%d = %d\n"  "$j" "$i"
-    ./cdpSimpleQuicksort num_items=${i}
+    time ./cdpSimpleQuicksort num_items=${i}
 done
 
