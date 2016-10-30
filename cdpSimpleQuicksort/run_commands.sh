@@ -7,7 +7,7 @@ then
 fi
 
 i=0
-for j in {1..21..1}
+for j in {1..20..1}
 do
     let "i=2**j"
     #sleep 15

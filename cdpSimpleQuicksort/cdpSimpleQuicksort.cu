@@ -141,7 +141,7 @@ void run_qsort(unsigned int *data, unsigned int nitems)
 void initialize_data(unsigned int *dst, unsigned int nitems)
 {
     // Fixed seed for illustration
-    srand(2047);
+    srand(4294967295 );
 
     // Fill dst with random values
     for (unsigned i = 0 ; i < nitems ; i++)
