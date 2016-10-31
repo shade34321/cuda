@@ -10,11 +10,14 @@
 */
 #include <iostream>
 #include <cstdio>
+#include <sys/time.h>
 #include <helper_cuda.h>
 #include <helper_string.h>
 
 #define MAX_DEPTH       16
 #define INSERTION_SORT  32
+
+typedef unsigned long long timestamp_t;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Selection sort used when depth gets too big or the number of elements drops
@@ -138,7 +141,7 @@ void run_qsort(unsigned int *data, unsigned int nitems)
 void initialize_data(unsigned int *dst, unsigned int nitems)
 {
     // Fixed seed for illustration
-    srand(2047);
+    srand(4294967295 );
 
     // Fill dst with random values
     for (unsigned i = 0 ; i < nitems ; i++)
@@ -148,7 +151,7 @@ void initialize_data(unsigned int *dst, unsigned int nitems)
 ////////////////////////////////////////////////////////////////////////////////
 // Verify the results.
 ////////////////////////////////////////////////////////////////////////////////
-int check_results(int n, unsigned int *results_d)
+void check_results(int n, unsigned int *results_d)
 {
     unsigned int *results_h = new unsigned[n];
     checkCudaErrors(cudaMemcpy(results_h, results_d, n*sizeof(unsigned), cudaMemcpyDeviceToHost));
@@ -162,6 +165,38 @@ int check_results(int n, unsigned int *results_d)
 
     std::cout << "OK" << std::endl;
     delete[] results_h;
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Opens the log file so we can store the results for analysis later.
+// Takes in the number of items being sorted and how long it took to sort it.
+////////////////////////////////////////////////////////////////////////////////
+void log_results(int num, timestamp_t timings[], int length) {
+    char filename[31];
+    snprintf(filename, 30, "sorting_time_results.csv");
+    
+    std::ofstream data_log; 
+    //Should allow us to open and append to the end only
+    data_log.open(filename, std::ios::out | std::ios::app);
+    
+    data_log << num;
+    
+    for(int i = 0; i < length; i++) {
+        data_log << "," << timings[i];
+    }
+
+    data_log << std::endl;
+    data_log.close();
+}
+
+////////////////////////////////////////////////////////////////////////////////
+// Returns current timestamp. Taken from Stackoverflow
+// http://stackoverflow.com/questions/1861294/how-to-calculate-execution-time-of-a-code-snippet-in-c
+////////////////////////////////////////////////////////////////////////////////
+static timestamp_t get_timestamp() {
+   struct timeval now;
+   gettimeofday(&now, NULL);
+   return now.tv_usec + (timestamp_t)now.tv_sec * 1000000;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -243,56 +278,61 @@ int main(int argc, char **argv)
         exit(EXIT_WAIVED);
     }
 
-    const char *output_file = 
-    
-    //Run three times
-    for(int i = 0;i < 3; i++) {
-		cudaSetDevice(device);
-	
-		// Create input data
-		unsigned int *h_data = 0;
-		unsigned int *d_data = 0;
-	
-		// Allocate CPU memory and initialize data.
-		std::cout << "Initializing data:" << std::endl;
-		h_data =(unsigned int *)malloc(num_items*sizeof(unsigned int));
-		initialize_data(h_data, num_items);
-	
-		if (verbose)
-		{
-			for (int i=0 ; i<num_items ; i++)
-				std::cout << "Data [" << i << "]: " << h_data[i] << std::endl;
-		}
-	
-		// Allocate GPU memory.
-		checkCudaErrors(cudaMalloc((void **)&d_data, num_items * sizeof(unsigned int)));
-		checkCudaErrors(cudaMemcpy(d_data, h_data, num_items * sizeof(unsigned int), cudaMemcpyHostToDevice));
-	
-		// Execute
-		std::cout << "Running quicksort on " << num_items << " elements" << std::endl;
-		
-		//Add timing code
-		run_qsort(d_data, num_items);
-		//End timing code
-		
-		// Check result
-		std::cout << "Validating results: ";
-		
-		if(check_results(num_items, d_data)){
-			//Store data
-		}
-		
-		free(h_data);
-		checkCudaErrors(cudaFree(d_data));
-	
-		// cudaDeviceReset causes the driver to clean up all state. While
-		// not mandatory in normal operation, it is good practice.  It is also
-		// needed to ensure correct operation when the application is being
-		// profiled. Calling cudaDeviceReset causes all profile data to be
-		// flushed before the application exits
-		cudaDeviceReset();
+    cudaSetDevice(device);
+    timestamp_t timings[4]; //For logging the times
+
+    for (int i = 0; i < 3; i++) {
+
+        // Create input data
+        unsigned int *h_data = 0;
+        unsigned int *d_data = 0;
+        
+        // Allocate CPU memory and initialize data.
+        std::cout << "Initializing data:" << std::endl;
+        h_data =(unsigned int *)malloc(num_items*sizeof(unsigned int));
+        initialize_data(h_data, num_items);
+
+        if (verbose)
+        {
+            for (int i=0 ; i<num_items ; i++)
+                std::cout << "Data [" << i << "]: " << h_data[i] << std::endl;
+        }
+
+        // Allocate GPU memory.
+        checkCudaErrors(cudaMalloc((void **)&d_data, num_items * sizeof(unsigned int)));
+        checkCudaErrors(cudaMemcpy(d_data, h_data, num_items * sizeof(unsigned int), cudaMemcpyHostToDevice));
+
+        // Execute
+        std::cout << "Running quicksort on " << num_items << " elements" << std::endl;
+        //We don't care how long it takes prior to this
+        timestamp_t t0 = get_timestamp();
+        run_qsort(d_data, num_items);
+        timestamp_t t1 = get_timestamp();
+
+        //Storing time_data for later.
+        timings[i] = t1 - t0;
+        //For calculating average later on
+        timings[3] += timings[i];
+
+        // Check result
+        std::cout << "Validating results: ";
+        check_results(num_items, d_data);
+
+        free(h_data);
+        checkCudaErrors(cudaFree(d_data));
+
+        // cudaDeviceReset causes the driver to clean up all state. While
+        // not mandatory in normal operation, it is good practice.  It is also
+        // needed to ensure correct operation when the application is being
+        // profiled. Calling cudaDeviceReset causes all profile data to be
+        // flushed before the application exits
+        cudaDeviceReset();
     }
+
+    //Calculating Average
+    timings[3] /= 3;
     
-	exit(EXIT_SUCCESS);
+    log_results(num_items, timings, 4);
+    exit(EXIT_SUCCESS);
 }
 

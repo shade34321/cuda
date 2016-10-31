@@ -1,0 +1,200 @@
+Running simulation using 2**1 = 2
+We will be using 2
+Running quicksort on 2 elements.
+Validating results: OK
+Running quicksort on 2 elements.
+Validating results: OK
+Running quicksort on 2 elements.
+Validating results: OK
+Running quicksort on 2 elements.
+Validating results: OK
+Running simulation using 2**2 = 4
+We will be using 4
+Running quicksort on 4 elements.
+Validating results: OK
+Running quicksort on 4 elements.
+Validating results: OK
+Running quicksort on 4 elements.
+Validating results: OK
+Running quicksort on 4 elements.
+Validating results: OK
+Running simulation using 2**3 = 8
+We will be using 8
+Running quicksort on 8 elements.
+Validating results: OK
+Running quicksort on 8 elements.
+Validating results: OK
+Running quicksort on 8 elements.
+Validating results: OK
+Running quicksort on 8 elements.
+Validating results: OK
+Running simulation using 2**4 = 16
+We will be using 16
+Running quicksort on 16 elements.
+Validating results: OK
+Running quicksort on 16 elements.
+Validating results: OK
+Running quicksort on 16 elements.
+Validating results: OK
+Running quicksort on 16 elements.
+Validating results: OK
+Running simulation using 2**5 = 32
+We will be using 32
+Running quicksort on 32 elements.
+Validating results: OK
+Running quicksort on 32 elements.
+Validating results: OK
+Running quicksort on 32 elements.
+Validating results: OK
+Running quicksort on 32 elements.
+Validating results: OK
+Running simulation using 2**6 = 64
+We will be using 64
+Running quicksort on 64 elements.
+Validating results: OK
+Running quicksort on 64 elements.
+Validating results: OK
+Running quicksort on 64 elements.
+Validating results: OK
+Running quicksort on 64 elements.
+Validating results: OK
+Running simulation using 2**7 = 128
+We will be using 128
+Running quicksort on 128 elements.
+Validating results: OK
+Running quicksort on 128 elements.
+Validating results: OK
+Running quicksort on 128 elements.
+Validating results: OK
+Running quicksort on 128 elements.
+Validating results: OK
+Running simulation using 2**8 = 256
+We will be using 256
+Running quicksort on 256 elements.
+Validating results: OK
+Running quicksort on 256 elements.
+Validating results: OK
+Running quicksort on 256 elements.
+Validating results: OK
+Running quicksort on 256 elements.
+Validating results: OK
+Running simulation using 2**9 = 512
+We will be using 512
+Running quicksort on 512 elements.
+Validating results: OK
+Running quicksort on 512 elements.
+Validating results: OK
+Running quicksort on 512 elements.
+Validating results: OK
+Running quicksort on 512 elements.
+Validating results: OK
+Running simulation using 2**10 = 1024
+We will be using 1024
+Running quicksort on 1024 elements.
+Validating results: OK
+Running quicksort on 1024 elements.
+Validating results: OK
+Running quicksort on 1024 elements.
+Validating results: OK
+Running quicksort on 1024 elements.
+Validating results: OK
+Running simulation using 2**11 = 2048
+We will be using 2048
+Running quicksort on 2048 elements.
+Validating results: OK
+Running quicksort on 2048 elements.
+Validating results: OK
+Running quicksort on 2048 elements.
+Validating results: OK
+Running quicksort on 2048 elements.
+Validating results: OK
+Running simulation using 2**12 = 4096
+We will be using 4096
+Running quicksort on 4096 elements.
+Validating results: OK
+Running quicksort on 4096 elements.
+Validating results: OK
+Running quicksort on 4096 elements.
+Validating results: OK
+Running quicksort on 4096 elements.
+Validating results: OK
+Running simulation using 2**13 = 8192
+We will be using 8192
+Running quicksort on 8192 elements.
+Validating results: OK
+Running quicksort on 8192 elements.
+Validating results: OK
+Running quicksort on 8192 elements.
+Validating results: OK
+Running quicksort on 8192 elements.
+Validating results: OK
+Running simulation using 2**14 = 16384
+We will be using 16384
+Running quicksort on 16384 elements.
+Validating results: OK
+Running quicksort on 16384 elements.
+Validating results: OK
+Running quicksort on 16384 elements.
+Validating results: OK
+Running quicksort on 16384 elements.
+Validating results: OK
+Running simulation using 2**15 = 32768
+We will be using 32768
+Running quicksort on 32768 elements.
+Validating results: OK
+Running quicksort on 32768 elements.
+Validating results: OK
+Running quicksort on 32768 elements.
+Validating results: OK
+Running quicksort on 32768 elements.
+Validating results: OK
+Running simulation using 2**16 = 65536
+We will be using 65536
+Running quicksort on 65536 elements.
+Validating results: OK
+Running quicksort on 65536 elements.
+Validating results: OK
+Running quicksort on 65536 elements.
+Validating results: OK
+Running quicksort on 65536 elements.
+Validating results: OK
+Running simulation using 2**17 = 131072
+We will be using 131072
+Running quicksort on 131072 elements.
+Validating results: OK
+Running quicksort on 131072 elements.
+Validating results: OK
+Running quicksort on 131072 elements.
+Validating results: OK
+Running quicksort on 131072 elements.
+Validating results: OK
+Running simulation using 2**18 = 262144
+We will be using 262144
+Running quicksort on 262144 elements.
+Validating results: OK
+Running quicksort on 262144 elements.
+Validating results: OK
+Running quicksort on 262144 elements.
+Validating results: OK
+Running quicksort on 262144 elements.
+Validating results: OK
+Running simulation using 2**19 = 524288
+We will be using 524288
+Running quicksort on 524288 elements.
+Validating results: OK
+Running quicksort on 524288 elements.
+Validating results: OK
+Running quicksort on 524288 elements.
+Validating results: OK
+Running quicksort on 524288 elements.
+Validating results: OK
+Running simulation using 2**20 = 1048576
+We will be using 1048576
+Running quicksort on 1048576 elements.
+Validating results: OK
+Running quicksort on 1048576 elements.
+Validating results: OK
+Running quicksort on 1048576 elements.
+Validating results: OK
+Running quicksort on 1048576 elements.
+Validating results: OK

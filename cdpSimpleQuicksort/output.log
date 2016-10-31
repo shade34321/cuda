@@ -1,0 +1,280 @@
+Running simulation using 2**1 = 2
+Running on GPU 0 (GeForce GTX 750 Ti)
+Initializing data:
+Running quicksort on 2 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 2 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 2 elements
+Launching kernel on the GPU
+Validating results: OK
+Running simulation using 2**2 = 4
+Running on GPU 0 (GeForce GTX 750 Ti)
+Initializing data:
+Running quicksort on 4 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 4 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 4 elements
+Launching kernel on the GPU
+Validating results: OK
+Running simulation using 2**3 = 8
+Running on GPU 0 (GeForce GTX 750 Ti)
+Initializing data:
+Running quicksort on 8 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 8 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 8 elements
+Launching kernel on the GPU
+Validating results: OK
+Running simulation using 2**4 = 16
+Running on GPU 0 (GeForce GTX 750 Ti)
+Initializing data:
+Running quicksort on 16 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 16 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 16 elements
+Launching kernel on the GPU
+Validating results: OK
+Running simulation using 2**5 = 32
+Running on GPU 0 (GeForce GTX 750 Ti)
+Initializing data:
+Running quicksort on 32 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 32 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 32 elements
+Launching kernel on the GPU
+Validating results: OK
+Running simulation using 2**6 = 64
+Running on GPU 0 (GeForce GTX 750 Ti)
+Initializing data:
+Running quicksort on 64 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 64 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 64 elements
+Launching kernel on the GPU
+Validating results: OK
+Running simulation using 2**7 = 128
+Running on GPU 0 (GeForce GTX 750 Ti)
+Initializing data:
+Running quicksort on 128 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 128 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 128 elements
+Launching kernel on the GPU
+Validating results: OK
+Running simulation using 2**8 = 256
+Running on GPU 0 (GeForce GTX 750 Ti)
+Initializing data:
+Running quicksort on 256 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 256 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 256 elements
+Launching kernel on the GPU
+Validating results: OK
+Running simulation using 2**9 = 512
+Running on GPU 0 (GeForce GTX 750 Ti)
+Initializing data:
+Running quicksort on 512 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 512 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 512 elements
+Launching kernel on the GPU
+Validating results: OK
+Running simulation using 2**10 = 1024
+Running on GPU 0 (GeForce GTX 750 Ti)
+Initializing data:
+Running quicksort on 1024 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 1024 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 1024 elements
+Launching kernel on the GPU
+Validating results: OK
+Running simulation using 2**11 = 2048
+Running on GPU 0 (GeForce GTX 750 Ti)
+Initializing data:
+Running quicksort on 2048 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 2048 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 2048 elements
+Launching kernel on the GPU
+Validating results: OK
+Running simulation using 2**12 = 4096
+Running on GPU 0 (GeForce GTX 750 Ti)
+Initializing data:
+Running quicksort on 4096 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 4096 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 4096 elements
+Launching kernel on the GPU
+Validating results: OK
+Running simulation using 2**13 = 8192
+Running on GPU 0 (GeForce GTX 750 Ti)
+Initializing data:
+Running quicksort on 8192 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 8192 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 8192 elements
+Launching kernel on the GPU
+Validating results: OK
+Running simulation using 2**14 = 16384
+Running on GPU 0 (GeForce GTX 750 Ti)
+Initializing data:
+Running quicksort on 16384 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 16384 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 16384 elements
+Launching kernel on the GPU
+Validating results: OK
+Running simulation using 2**15 = 32768
+Running on GPU 0 (GeForce GTX 750 Ti)
+Initializing data:
+Running quicksort on 32768 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 32768 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 32768 elements
+Launching kernel on the GPU
+Validating results: OK
+Running simulation using 2**16 = 65536
+Running on GPU 0 (GeForce GTX 750 Ti)
+Initializing data:
+Running quicksort on 65536 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 65536 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 65536 elements
+Launching kernel on the GPU
+Validating results: OK
+Running simulation using 2**17 = 131072
+Running on GPU 0 (GeForce GTX 750 Ti)
+Initializing data:
+Running quicksort on 131072 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 131072 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 131072 elements
+Launching kernel on the GPU
+Validating results: OK
+Running simulation using 2**18 = 262144
+Running on GPU 0 (GeForce GTX 750 Ti)
+Initializing data:
+Running quicksort on 262144 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 262144 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 262144 elements
+Launching kernel on the GPU
+Validating results: OK
+Running simulation using 2**19 = 524288
+Running on GPU 0 (GeForce GTX 750 Ti)
+Initializing data:
+Running quicksort on 524288 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 524288 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 524288 elements
+Launching kernel on the GPU
+Validating results: OK
+Running simulation using 2**20 = 1048576
+Running on GPU 0 (GeForce GTX 750 Ti)
+Initializing data:
+Running quicksort on 1048576 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 1048576 elements
+Launching kernel on the GPU
+Validating results: OK
+Initializing data:
+Running quicksort on 1048576 elements
+Launching kernel on the GPU
+Validating results: OK
